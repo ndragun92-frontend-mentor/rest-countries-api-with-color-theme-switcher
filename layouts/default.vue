@@ -37,7 +37,6 @@ export default {
 <script lang="ts" setup>
 const colorMode = useColorMode();
 const onToggleTheme = () => {
-  console.log("onToggleTheme", colorMode);
   switch (colorMode.value) {
     case "dark":
       colorMode.preference = "light";
