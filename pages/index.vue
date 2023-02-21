@@ -85,7 +85,10 @@
           :key="country.name"
           class="rounded-md overflow-hidden bg-primary-darkTextLightEl dark:bg-primary-darkEl shadow-md"
         >
-          <nuxt-link :to="`/${country.name}`" class="block">
+          <nuxt-link
+            :to="`/${country.name}`"
+            class="block hover:-translate-y-2 duration-200"
+          >
             <div
               class="w-full h-[220px] sm:h-[160px] bg-primary-lightBg dark:bg-primary-darkBg"
             >
@@ -107,19 +110,22 @@
                   <strong class="font-semibold tracking-[-0px]"
                     >Population:
                   </strong>
-                  <span class="tracking-[0px]">81,770,900</span>
+                  <span
+                    class="tracking-[0px]"
+                    v-text="formatNumber(country?.population)"
+                  />
                 </div>
                 <div>
                   <strong class="font-semibold tracking-[-0px]"
                     >Region:
                   </strong>
-                  <span class="tracking-[0px]">Europe</span>
+                  <span class="tracking-[0px]" v-text="country?.region" />
                 </div>
                 <div>
                   <strong class="font-semibold tracking-[-0px]"
                     >Capital:
                   </strong>
-                  <span class="tracking-[0px]">Berlin</span>
+                  <span class="tracking-[0px]" v-text="country?.capital" />
                 </div>
               </div>
             </div>
@@ -142,6 +148,7 @@ export default {
 
 <script lang="ts" setup>
 import escapeRegExp from "lodash-es/escapeRegExp";
+import numberWithCommas from "~/utils/DataFormat";
 const endLoad = ref(8);
 
 const dropdown = ref<HTMLElement | null>(null);
@@ -213,6 +220,8 @@ const onLoadMore = async ($state) => {
     $state.loaded();
   }
 };
+
+const formatNumber = (x) => numberWithCommas(x);
 </script>
 
 <style lang="scss" scoped>
