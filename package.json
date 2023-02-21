@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-27821548.ab054e4",
+    "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.4.1",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
@@ -23,7 +24,7 @@
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.9.0",
-    "nuxt": "^3.2.2",
+    "nuxt": "npm:nuxt3@latest",
     "nuxt-icon": "^0.3.2",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",
@@ -34,6 +35,7 @@
     "@morev/vue-transitions": "^2.3.6",
     "@pinia/nuxt": "^0.4.7",
     "lodash-es": "^4.17.21",
-    "pinia": "^2.0.27"
+    "pinia": "^2.0.27",
+    "v3-infinite-loading": "^1.2.2"
   }
 }

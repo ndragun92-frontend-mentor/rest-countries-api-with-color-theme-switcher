@@ -1,0 +1,10 @@
+.spinner__infinite-load {
+  @apply w-full flex items-center justify-center py-12;
+  svg {
+    @apply h-8 w-8 text-primary-darkText dark:text-primary-darkTextLightEl;
+  }
+  &--success,
+  &--error {
+    @apply hidden;
+  }
+}

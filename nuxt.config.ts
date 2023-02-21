@@ -2,6 +2,7 @@
 import eslintPlugin from "vite-plugin-eslint";
 
 export default defineNuxtConfig({
+  ssr: false,
   experimental: {
     emitRouteChunkError: "reload",
   },
@@ -41,5 +42,10 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     // https://github.com/MorevM/vue-transitions
     "@morev/vue-transitions/nuxt",
+    // https://color-mode.nuxtjs.org
+    "@nuxtjs/color-mode",
   ],
+  colorMode: {
+    classSuffix: "",
+  },
 });
