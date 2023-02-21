@@ -81,7 +81,7 @@
         class="grid grid-cols-1 gap-[50px] sm:grid-cols-2 sm:gap-[50px] md:grid-cols-3 md:gap-[50px] xl:grid-cols-4 xl:gap-[75px]"
       >
         <li
-          v-for="country in returnFilteredData.slice(0, endLoad)"
+          v-for="country in returnFilteredData.slice(0, loadStore.loadCount)"
           :key="country.name"
           class="rounded-md overflow-hidden bg-primary-darkTextLightEl dark:bg-primary-darkEl shadow-md"
         >
@@ -149,30 +149,26 @@ export default {
 <script lang="ts" setup>
 import escapeRegExp from "lodash-es/escapeRegExp";
 import numberWithCommas from "~/utils/DataFormat";
-const endLoad = ref(8);
+import { useLoadingStore } from "~/store/loadingStore";
+const loadStore = useLoadingStore();
 
 const dropdown = ref<HTMLElement | null>(null);
 
-const { data: countries } = await useFetch("/api/countries", {
-  transform: (res: any) => {
-    return res.data.map((country) => {
-      const { name, population, region, capital, flags } = country;
-      return {
-        name,
-        population,
-        region,
-        capital,
-        flags,
-      };
-    });
-  },
-});
+const { data: countries } = await useAsyncData<any>(
+  "countries",
+  async (nuxtApp) => {
+    if (nuxtApp?.payload?.data?.countries?.data?.length) {
+      return nuxtApp?.payload?.data?.countries;
+    }
+    return await $fetch("/api/countries");
+  }
+);
 
 const keyword = ref("");
 const showRegionDropdown = ref(false);
 const region = ref("");
 const returnFilteredData = computed(() => {
-  let data = countries.value || [];
+  let data = countries.value?.data || [];
   if (region.value) {
     data = data.filter((country) => country.region === region.value);
   }
@@ -213,10 +209,10 @@ onClickOutside(dropdown, () => {
 });
 
 const onLoadMore = async ($state) => {
-  if (endLoad.value >= countries.value?.length) {
+  if (loadStore.loadCount >= countries.value?.length) {
     $state.complete();
   } else {
-    endLoad.value += 8;
+    loadStore.increaseLoadCount(8);
     $state.loaded();
   }
 };

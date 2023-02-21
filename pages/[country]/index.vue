@@ -3,13 +3,14 @@
     <div class="container">
       <header>
         <div>
-          <nuxt-link
-            to="/"
+          <button
+            type="button"
             class="inline-flex items-center align-center gap-[10px] shadow-md bg-primary-darkTextLightEl dark:bg-primary-darkEl pl-[32px] pr-[40px] py-[8px] rounded-lg hover:-translate-y-1 hover:text-blue-500 duration-200"
+            @click="$router.back()"
           >
             <Icon size="20" name="teenyicons:arrow-left-solid" />
-            <span>Back</span></nuxt-link
-          >
+            <span>Back</span>
+          </button>
         </div>
       </header>
       <main
@@ -143,22 +144,15 @@ import numberWithCommas from "~/utils/DataFormat";
 const route = useRoute();
 import countriesJSON from "../../assets/json/countries.json";
 
-const { data: country } = await useFetch(
-  `/api/countries?name=${route.params.country}`,
-  {
-    pick: [
-      "name",
-      "flags",
-      "nativeName",
-      "population",
-      "region",
-      "subregion",
-      "capital",
-      "topLevelDomain",
-      "currencies",
-      "languages",
-      "borders",
-    ],
+const countryName = computed<string>(() => route.params.country as string);
+
+const { data: country } = await useAsyncData<any>(
+  countryName.value,
+  async (nuxtApp) => {
+    if (nuxtApp?.payload?.data && nuxtApp?.payload?.data[countryName.value]) {
+      return nuxtApp!.payload.data[countryName.value];
+    }
+    return await $fetch(`/api/countries?name=${route.params.country}`);
   }
 );
 
