@@ -10,5 +10,14 @@ body {
 
 .container {
   @apply max-w-[1440px] w-full px-[40px] sm:px-[80px] mx-auto;
-  //outline: 1px dotted red;
+}
+
+.page-enter-active,
+.page-leave-active {
+  @apply duration-500;
+}
+.page-enter-from,
+.page-leave-to {
+  @apply opacity-0;
+  @apply blur-lg;
 }
