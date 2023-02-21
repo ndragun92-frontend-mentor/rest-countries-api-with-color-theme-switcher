@@ -33,8 +33,8 @@ Your users should be able to:
 
 ### Links
 
-- Solution URL: [Solution](https://www.frontendmentor.io/solutions/advice-generator-app-made-with-nuxt-3-tailwind-5Lwu9p67pv)
-- Live Site URL: [Vercel](https://advice-generator-app-seven-psi.vercel.app/)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/rest-countries-api-with-color-theme-switch-made-with-nuxt-3-tailwind-nXm9AkXEl0)
+- Live Site URL: [Vercel](https://rest-countries-api-with-color-theme-switcher-mauve.vercel.app/)
 
 ## My process
 
