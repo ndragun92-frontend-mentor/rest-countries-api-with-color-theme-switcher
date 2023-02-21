@@ -183,7 +183,7 @@ const returnFilteredData = computed(() => {
 });
 
 const returnCountryRegions = computed(() => {
-  const data = countries.value || [];
+  const data = countries.value?.data || [];
   return [...new Set(data.map((country) => country.region))];
 });
 
