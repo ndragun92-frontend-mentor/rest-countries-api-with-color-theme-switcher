@@ -6,6 +6,14 @@ body {
   @apply font-light;
   @apply bg-primary-lightBg dark:bg-primary-darkBg;
   @apply text-primary-darkText dark:text-primary-darkTextLightEl;
+  @apply min-h-screen;
+}
+
+#__nuxt {
+  @apply min-h-screen flex flex-col;
+  & > div {
+    @apply flex-1
+  }
 }
 
 .container {

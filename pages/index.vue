@@ -1,7 +1,7 @@
 <template>
   <main class="py-[48px]">
     <header
-      class="container flex items-center justify-between gap-6 sm:gap-4 flex-col sm:flex-row"
+      class="container flex items-center justify-between gap-6 sm:gap-4 flex-col sm:flex-row sticky top-6 z-10"
     >
       <div class="w-full">
         <div
