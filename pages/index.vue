@@ -85,39 +85,45 @@
           :key="country.name"
           class="rounded-md overflow-hidden bg-primary-darkTextLightEl dark:bg-primary-darkEl shadow-md"
         >
-          <div
-            class="w-full h-[220px] sm:h-[160px] bg-primary-lightBg dark:bg-primary-darkBg"
-          >
-            <img
-              class="block w-full h-full object-cover"
-              :src="country?.flags?.svg"
-              :alt="country?.name"
-            />
-          </div>
-          <div class="p-[24px]">
-            <h3
-              class="font-extrabold text-[18px] tracking-[-0.1px]"
-              v-html="highlightTag(country?.name)"
-            />
+          <nuxt-link :to="`/${country.name}`" class="block">
             <div
-              class="mt-[12px] pb-[16px] text-[14px] flex flex-col gap-[3px]"
+              class="w-full h-[220px] sm:h-[160px] bg-primary-lightBg dark:bg-primary-darkBg"
             >
-              <div>
-                <strong class="font-semibold tracking-[-0px]"
-                  >Population:
-                </strong>
-                <span class="tracking-[0px]">81,770,900</span>
-              </div>
-              <div>
-                <strong class="font-semibold tracking-[-0px]">Region: </strong>
-                <span class="tracking-[0px]">Europe</span>
-              </div>
-              <div>
-                <strong class="font-semibold tracking-[-0px]">Capital: </strong>
-                <span class="tracking-[0px]">Berlin</span>
+              <img
+                class="block w-full h-full object-cover"
+                :src="country?.flags?.svg"
+                :alt="country?.name"
+              />
+            </div>
+            <div class="p-[24px]">
+              <h3
+                class="font-extrabold text-[18px] tracking-[-0.1px]"
+                v-html="highlightTag(country?.name)"
+              />
+              <div
+                class="mt-[12px] pb-[16px] text-[14px] flex flex-col gap-[3px]"
+              >
+                <div>
+                  <strong class="font-semibold tracking-[-0px]"
+                    >Population:
+                  </strong>
+                  <span class="tracking-[0px]">81,770,900</span>
+                </div>
+                <div>
+                  <strong class="font-semibold tracking-[-0px]"
+                    >Region:
+                  </strong>
+                  <span class="tracking-[0px]">Europe</span>
+                </div>
+                <div>
+                  <strong class="font-semibold tracking-[-0px]"
+                    >Capital:
+                  </strong>
+                  <span class="tracking-[0px]">Berlin</span>
+                </div>
               </div>
             </div>
-          </div>
+          </nuxt-link>
         </li>
       </ul>
       <div v-else>No matching results</div>

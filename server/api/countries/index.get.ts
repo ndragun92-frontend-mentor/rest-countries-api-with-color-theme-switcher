@@ -16825,7 +16825,7 @@ export default defineEventHandler((event) => {
         }
     ]
     if (name) {
-       data = data.find(country => country.name === name)
+       return data.find(country => country.name === name)
     }
     return {
         data
