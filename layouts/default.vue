@@ -2,7 +2,7 @@
   <nav class="h-20 shadow-md bg-primary-darkTextLightEl dark:bg-primary-darkEl">
     <div class="container h-full flex items-center justify-between gap-4">
       <div>
-        <h1 class="font-extrabold text-2xl tracking-[-0.1px]">
+        <h1 class="font-extrabold text-lg sm:text-2xl tracking-[-0.1px]">
           Where in the world?
         </h1>
       </div>
@@ -19,7 +19,10 @@
                 colorMode.value === 'dark' ? '' : '-outline'
               }`"
             />
-            <span v-text="returnThemeName(colorMode.value)" />
+            <span
+              class="hidden sm:inline"
+              v-text="returnThemeName(colorMode.value)"
+            />
           </button>
         </client-only>
       </div>

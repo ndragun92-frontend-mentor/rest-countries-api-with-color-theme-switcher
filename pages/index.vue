@@ -1,6 +1,8 @@
 <template>
   <main class="py-[48px]">
-    <header class="container flex items-center justify-between gap-4">
+    <header
+      class="container flex items-center justify-between gap-6 sm:gap-4 flex-col sm:flex-row"
+    >
       <div class="w-full">
         <div
           class="relative w-full bg-primary-darkTextLightEl dark:bg-primary-darkEl shadow-md max-w-[480px] h-[56px] rounded-md"
@@ -19,7 +21,7 @@
           <transition-fade>
             <button
               v-if="region"
-              class="absolute top-[calc(100%+10px)] left-0 bg-blue-500 hover:bg-red-500 duration-200 text-white font-semibold py-1 px-3 rounded shadow text-sm flex items-center gap-1"
+              class="absolute right-0 top-[calc(100%+10px)] sm:left-0 sm:right-[initial] bg-blue-500 hover:bg-red-500 duration-200 text-white font-semibold py-1 px-3 rounded shadow text-sm flex items-center gap-1"
               @click="region = ''"
             >
               <span v-text="region" />
@@ -31,7 +33,7 @@
       <div class="w-full">
         <div
           ref="dropdown"
-          class="relative w-full bg-primary-darkTextLightEl dark:bg-primary-darkEl shadow-md max-w-[200px] h-[56px] rounded-md ml-auto"
+          class="relative w-full bg-primary-darkTextLightEl dark:bg-primary-darkEl shadow-md max-w-[200px] h-[56px] rounded-md sm:ml-auto"
         >
           <button
             class="w-full h-full flex items-center justify-between px-[24px] tracking-[-0.8px]"
@@ -74,14 +76,17 @@
       </div>
     </header>
     <section class="container pt-[48px]">
-      <ul v-if="returnFilteredData.length" class="grid grid-cols-4 gap-[75px]">
+      <ul
+        v-if="returnFilteredData.length"
+        class="grid grid-cols-1 gap-[50px] sm:grid-cols-2 sm:gap-[50px] md:grid-cols-3 md:gap-[50px] xl:grid-cols-4 xl:gap-[75px]"
+      >
         <li
           v-for="country in returnFilteredData.slice(0, endLoad)"
           :key="country.name"
           class="rounded-md overflow-hidden bg-primary-darkTextLightEl dark:bg-primary-darkEl shadow-md"
         >
           <div
-            class="w-full h-[160px] bg-primary-lightBg dark:bg-primary-darkBg"
+            class="w-full h-[220px] sm:h-[160px] bg-primary-lightBg dark:bg-primary-darkBg"
           >
             <img
               class="block w-full h-full object-cover"
