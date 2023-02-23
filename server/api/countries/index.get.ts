@@ -16825,7 +16825,7 @@ export default defineEventHandler((event) => {
         }
     ]
     if (name) {
-       return data.find(country => country.name === name)
+       return data.find(country => country.name === name || country.alpha3Code === name)
     }
     return {
         data
