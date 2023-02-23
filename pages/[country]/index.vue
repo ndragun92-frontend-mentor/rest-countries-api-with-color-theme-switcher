@@ -160,7 +160,7 @@ const formatNumber = (x) => numberWithCommas(x);
 
 const returnCountryName = (border) => {
   return (
-    countriesJSON.find((country) => country.let3 === border)?.name || border
+    countriesJSON.find((country) => country.code === border)?.name || border
   );
 };
 </script>
