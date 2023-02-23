@@ -86,7 +86,7 @@
           class="rounded-md overflow-hidden bg-primary-darkTextLightEl dark:bg-primary-darkEl shadow-md"
         >
           <nuxt-link
-            :to="`/${country.name}`"
+            :to="`/${country.alpha3Code}`"
             class="block hover:-translate-y-2 duration-200"
           >
             <div

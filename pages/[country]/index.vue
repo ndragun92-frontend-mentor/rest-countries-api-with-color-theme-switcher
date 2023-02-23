@@ -118,7 +118,7 @@
                 <li v-for="border in country?.borders" :key="border">
                   <nuxt-link
                     class="bg-primary-darkTextLightEl dark:bg-primary-darkEl px-[28px] py-[4px] rounded-md shadow tracking-[-1px] hover:text-blue-500 duration-200"
-                    :to="`/${returnCountryName(border)}`"
+                    :to="`/${border}`"
                     >{{ returnCountryName(border) }}</nuxt-link
                   >
                 </li>
